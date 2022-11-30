@@ -19,8 +19,8 @@ public class HolidayController {
         this.holidayRestClient = holidayRestClient;
     }
 
-    @GetMapping("{year}/{code1}/{code2}")
-    public List<CommonHolidays> getCommonHolidays(@PathVariable String year, @PathVariable String code1, @PathVariable String code2) {
-        return holidayRestClient.commonHolidays(year, code1, code2);
+    @GetMapping("{year}/{firstCountry}/{secondCountry}")
+    public List<CommonHolidays> getCommonHolidays(@PathVariable String year, @PathVariable String firstCountry, @PathVariable String secondCountry) {
+        return holidayRestClient.commonHolidays(year, firstCountry, secondCountry);
     }
 }

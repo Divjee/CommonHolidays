@@ -17,9 +17,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+
 class CommonHolidaysApplicationTests {
-    WebClient.Builder builder = WebClient.builder();
-    HolidayRestClient holidayRestClient = new HolidayRestClient(builder);
+    private final HolidayRestClient holidayRestClient = new HolidayRestClient();
 
     @Test
     void retrieveAllHolidays() {
