@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientException;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +22,13 @@ public class HolidayRestClient {
 
     public List<Holiday> retrieveHolidays(String year, String countryCode) {
         try {
-            return webClient.get().uri("https://date.nager.at/api/v3/PublicHolidays/" + year + "/" + countryCode + "")
+            return webClient.get().uri("https://dat.nager.at/api/v3/PublicHolidays/" + year + "/" + countryCode + "")
                     .retrieve()
                     .bodyToFlux(Holiday.class)
                     .collectList()
                     .block();
-        } catch (WebClientException ex) {
-            throw new RuntimeException(ex.getMessage());
+        } catch (WebClientResponseException ex) {
+            throw new RuntimeException(ex.getCause());
         }
     }
 
