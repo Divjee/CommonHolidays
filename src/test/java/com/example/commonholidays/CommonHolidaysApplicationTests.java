@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.reactive.function.client.WebClientException;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 
 import java.time.LocalDate;
@@ -36,7 +37,7 @@ class CommonHolidaysApplicationTests {
     void retrieveAllHolidays_notFound() {
         String year = "2022";
         String countryId = "QWN";
-        Assertions.assertThrows(WebClientException.class, () -> holidayRestClient.retrieveHolidays(year, countryId));
+        Assertions.assertThrows(WebClientResponseException.class, () -> holidayRestClient.retrieveHolidays(year, countryId));
     }
 
     @Test
