@@ -21,6 +21,6 @@ code1/code2 - write the country code of the countries
 
 
    
-The response of such request will be the common holidays on the same date with China(CH) and Latvia(LV)
+The response of such request will be the common holidays on the same date with Switzerland(CH) and Latvia(LV)
 
 ![RESPONSE](https://user-images.githubusercontent.com/99561972/205029404-a0044d2f-d30b-4c13-afe0-089236870a8d.PNG)
