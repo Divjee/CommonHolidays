@@ -22,7 +22,7 @@ public class HolidayRestClient {
 
     public List<Holiday> retrieveHolidays(String year, String countryCode) {
         try {
-            return webClient.get().uri("https://dat.nager.at/api/v3/PublicHolidays/" + year + "/" + countryCode + "")
+            return webClient.get().uri("https://date.nager.at/api/v3/PublicHolidays/" + year + "/" + countryCode + "")
                     .retrieve()
                     .bodyToFlux(Holiday.class)
                     .collectList()

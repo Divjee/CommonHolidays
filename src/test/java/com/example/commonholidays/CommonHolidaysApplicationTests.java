@@ -37,7 +37,7 @@ class CommonHolidaysApplicationTests {
     void retrieveAllHolidays_notFound() {
         String year = "2022";
         String countryId = "QWN";
-        Assertions.assertThrows(WebClientResponseException.class, () -> holidayRestClient.retrieveHolidays(year, countryId));
+        Assertions.assertThrows(RuntimeException.class, () -> holidayRestClient.retrieveHolidays(year, countryId));
     }
 
     @Test
