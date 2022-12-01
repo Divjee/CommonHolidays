@@ -2,11 +2,11 @@ package com.example.commonholidays;
 
 import com.example.commonholidays.model.CommonHolidays;
 import com.example.commonholidays.model.Holiday;
-import com.example.commonholidays.service.HolidayRestClient;
+import com.example.commonholidays.rest.HolidayRestClient;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientException;
 
 
@@ -19,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 
 class CommonHolidaysApplicationTests {
+    @Autowired
     private final HolidayRestClient holidayRestClient = new HolidayRestClient();
 
     @Test

@@ -1,6 +1,6 @@
 package com.example.commonholidays.controller;
 
-import com.example.commonholidays.service.HolidayRestClient;
+import com.example.commonholidays.rest.HolidayRestClient;
 import com.example.commonholidays.model.CommonHolidays;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
