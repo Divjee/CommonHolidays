@@ -7,6 +7,6 @@ import java.time.LocalDate;
 @Data
 public class CommonHolidays {
     private LocalDate date;
-    private String commonHoliday1LocalName;
-    private String commonHoliday2LocalName;
+    private String firstHolidayLocalName;
+    private String secondHolidayLocalName;
 }
