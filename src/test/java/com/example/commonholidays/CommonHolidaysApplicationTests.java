@@ -20,7 +20,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CommonHolidaysApplicationTests {
     @Autowired
-    private final HolidayRestClient holidayRestClient = new HolidayRestClient();
+    private  HolidayRestClient holidayRestClient;
+
+
 
     @Test
     void retrieveAllHolidays() {
