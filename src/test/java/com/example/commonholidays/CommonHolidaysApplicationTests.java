@@ -18,36 +18,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-
 class CommonHolidaysApplicationTests {
     @Autowired
-    private  HolidayRestClient holidayRestClient;
-
-
-
-    @Test
-    void retrieveAllHolidays() {
-        String year = "2022";
-        String countryId = "LV";
-        List<Holiday> holidayList = holidayRestClient.retrieveHolidays(year, countryId);
-        assertTrue(holidayList.size() > 0);
-    }
-
-    @Test
-    void retrieveAllHolidays_notFound() {
-        String year = "2022";
-        String countryId = "QWN";
-        Assertions.assertThrows(RuntimeException.class, () -> holidayRestClient.retrieveHolidays(year, countryId));
-    }
-
-    @Test
-    void checkIfHolidaysMatchTest() {
-        Holiday holiday1 = new Holiday(LocalDate.of(2020, 4, 12), "Lieldienas", "Easter");
-        Holiday holiday2 = new Holiday(LocalDate.of(2021, 12, 25), "Christmas-Eve", "Christmas");
-        Holiday holiday3 = new Holiday(LocalDate.of(2021, 12, 25), "Christmas-Eve", "Christmas");
-        assertFalse(holidayRestClient.checkIfHolidaysMatch(holiday1, holiday2));
-        assertTrue(holidayRestClient.checkIfHolidaysMatch(holiday2, holiday3));
-    }
+    private HolidayRestClient holidayRestClient;
 
     @Test
     void getCommonHolidaysTest() {
@@ -60,5 +33,4 @@ class CommonHolidaysApplicationTests {
 
         assertEquals(commonHolidays, holidayRestClient.getCommonHolidays(holiday2List, holiday3List));
     }
-
 }
