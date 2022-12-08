@@ -4,7 +4,7 @@ Rest API using Spring Boot from https://date.nager.at/
 
    Running App
     
-            mvn spring-boot:run
+           ./mvnw spring-boot:run
 
    
    Swagger
