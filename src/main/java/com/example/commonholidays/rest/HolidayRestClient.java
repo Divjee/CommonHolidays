@@ -2,18 +2,15 @@ package com.example.commonholidays.rest;
 
 import com.example.commonholidays.model.CommonHolidays;
 import com.example.commonholidays.model.Holiday;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.reactive.function.client.WebClientException;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Slf4j
+
 @Service
 public class HolidayRestClient {
     private final WebClient webClient;
@@ -34,18 +31,6 @@ public class HolidayRestClient {
         }
     }
 
-    public List<CommonHolidays> getCommonHolidays(List<Holiday> firstHoliday, List<Holiday> secondHoliday) {
-        List<CommonHolidays> commonHolidays = new ArrayList<>();
-        for (Holiday i : firstHoliday) {
-            for (Holiday j : secondHoliday) {
-                if (checkIfHolidaysMatch(i, j)) {
-                    commonHolidays.add(new CommonHolidays(j.getDate(), j.getLocalName(), i.getLocalName()));
-                }
-            }
-        }
-        return commonHolidays;
-    }
-
     public List<CommonHolidays> commonHolidays(String year, String firstCountryCode, String secondCountryCode) {
         List<Holiday> holidayListOne = retrieveHolidays(year, firstCountryCode);
         List<Holiday> holidayListTwo = retrieveHolidays(year, secondCountryCode);
@@ -55,5 +40,17 @@ public class HolidayRestClient {
 
     private boolean checkIfHolidaysMatch(Holiday firstHoliday, Holiday secondHoliday) {
         return firstHoliday.getDate().equals(secondHoliday.getDate());
+    }
+
+    private List<CommonHolidays> getCommonHolidays(List<Holiday> firstHoliday, List<Holiday> secondHoliday) {
+        List<CommonHolidays> commonHolidays = new ArrayList<>();
+        for (Holiday i : firstHoliday) {
+            for (Holiday j : secondHoliday) {
+                if (checkIfHolidaysMatch(i, j)) {
+                    commonHolidays.add(new CommonHolidays(j.getDate(), j.getLocalName(), i.getLocalName()));
+                }
+            }
+        }
+        return commonHolidays;
     }
 }
